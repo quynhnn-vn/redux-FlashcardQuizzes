@@ -1,4 +1,4 @@
-# React Redux project: Flashcard Quiz App
+# React Redux project: Flashcard Quizzes App
 
 In this app, users will be able to:
 - Create their own topics
@@ -12,6 +12,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Run `yarn install` inside the project's root directory (make sure you have Node installed on your computer)
 
-Run `yarn start` and open (http://localhost:3000)[http://localhost:3000] to view it in the browser.
+Run `yarn start` and open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Open []() to view it in deployed version.
+Open [https://flashcard-quizzes-qnn.netlify.app/](https://flashcard-quizzes-qnn.netlify.app/) to view it in deployed version.

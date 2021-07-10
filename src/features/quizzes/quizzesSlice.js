@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { quizData } from "../../data/quizData";
 import { addQuizId } from "../topics/topicsSlice";
 /* Quizzes state has form:
 {
@@ -46,6 +47,9 @@ export const quizzesSlice = createSlice({
     /* action.payload has form: 
     {id: '456', name: 'quiz name', topicId: '123', cardIds: ['101', '202']}
     */
+    loadQuizzes: (state) => {
+      state.quizzes = quizData;
+    },
     addQuiz: (state, action) => {
       state.quizzes = {
         ...state.quizzes,
@@ -54,6 +58,6 @@ export const quizzesSlice = createSlice({
     },
   },
 });
-export const { addQuiz } = quizzesSlice.actions;
+export const { addQuiz, loadQuizzes } = quizzesSlice.actions;
 export const selectQuizzes = (state) => state.quizzes.quizzes;
 export default quizzesSlice.reducer;

@@ -1,9 +1,10 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import {
   BrowserRouter as Router, 
   NavLink,
   Switch,
   Route,
+  Redirect,
   useRouteMatch,
 } from 'react-router-dom';
 import ROUTES from "./routes";
@@ -15,8 +16,19 @@ import { Topics } from "../features/topics/Topics";
 import { NewQuizForm } from "../components/NewQuizForm";
 import { Quiz } from "../features/quizzes/Quiz";
 import { Quizzes } from "../features/quizzes/Quizzes";
+import { loadQuizzes } from '../features/quizzes/quizzesSlice';
+import { loadTopics } from "../features/topics/topicsSlice";
+import { loadCards } from "../features/cards/cardsSlice";
+import { useDispatch } from 'react-redux';
 
 const App = () => {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(loadTopics());
+    dispatch(loadQuizzes());
+    dispatch(loadCards());
+  }, [dispatch]);
+
   return (
     <Router>
       <nav>
@@ -45,6 +57,9 @@ const App = () => {
         </Route>
         <Route path="/quizzes">
           <QuizRoutes />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/topics"/>
         </Route>
       </Switch>
     </Router>

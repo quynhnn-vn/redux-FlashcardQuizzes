@@ -1,4 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { topicData } from "../../data/topicData";
+
 /* Topics state has form: 
 {
   topics: {
@@ -23,6 +25,9 @@ export const topicsSlice = createSlice({
     {id: '123', name: 'culture', icon: 'icon url'}
     quizIds property will be added as an empty array
     */
+    loadTopics: (state) => {
+      state.topics = topicData;
+    },
     addTopic: (state, action) => {
       const newState = {
         ...action.payload,
@@ -40,6 +45,6 @@ export const topicsSlice = createSlice({
     },
   },
 });
-export const { addTopic, addQuizId } = topicsSlice.actions;
+export const { addTopic, addQuizId, loadTopics } = topicsSlice.actions;
 export const selectTopics = (state) => state.topics.topics;
 export default topicsSlice.reducer;

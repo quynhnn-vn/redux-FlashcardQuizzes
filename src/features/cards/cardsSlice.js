@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { cardData } from "../../data/cardData";
 /* Cards State has form:
 {
     cards: {
@@ -21,6 +22,9 @@ export const cardsSlice = createSlice({
     /* action.payload has form:
     { id: '101', front: 'front text', back: 'back text' }
     */
+    loadCards: (state) => {
+      state.cards = cardData;
+    },
     addCard: (state, action) => {
       state.cards = {
         ...state.cards,
@@ -29,6 +33,6 @@ export const cardsSlice = createSlice({
     },
   },
 });
-export const { addCard } = cardsSlice.actions;
+export const { addCard, loadCards } = cardsSlice.actions;
 export const selectCards = (state) => state.cards.cards;
 export default cardsSlice.reducer;

@@ -4,7 +4,6 @@ import {
   NavLink,
   Switch,
   Route,
-  Redirect,
   useRouteMatch,
 } from 'react-router-dom';
 import ROUTES from "./routes";
@@ -58,9 +57,7 @@ const App = () => {
         <Route path="/quizzes">
           <QuizRoutes />
         </Route>
-        <Route exact path="/">
-          <Redirect to="/topics"/>
-        </Route>
+
       </Switch>
     </Router>
   )
